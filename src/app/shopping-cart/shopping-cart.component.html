@@ -1,0 +1,27 @@
+<p class="title">Mi Carrito</p>
+
+<!-- 
+  ? Directivas estructurales
+  * *ngFor
+  * *ngIf
+  * *ngSwitch
+ -->
+
+
+<!-- 
+  ? Explicación
+  * [cartItem] 
+  Es una propiedad con el decorador @Input declarada en el componente shopping-cart-item.
+
+  * (cartItemDeleteEvent)
+  Es una propiedad con el decorador @Output declarada en el componente shopping-cart-item, la cual emite un evento y el componente padre al recibir ese evento puede realizar una acción, en este caso ejecutar la función deleteItem(item).
+ -->
+<app-shopping-cart-item
+  *ngFor="let item of cartItems"
+  [cartItem]="item"
+  (cartItemDeleteEvent)="deleteItem(item)"
+></app-shopping-cart-item>
+
+<p class="total"><span class="total-label">total:</span> {{ total }} €</p>
+
+<button>Finalizar Pedido</button>
